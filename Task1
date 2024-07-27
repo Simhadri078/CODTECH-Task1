@@ -1,0 +1,68 @@
+#Importing necessary libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset (Using the Iris dataset for this example)
+df = sns.load_dataset('iris')
+
+# Display the first few rows of the dataset
+print("First few rows of the dataset:")
+print(df.head())
+
+# Basic statistics of the dataset
+print("\nBasic statistics of the dataset:")
+print(df.describe())
+
+# Check for missing values
+print("\nChecking for missing values:")
+print(df.isnull().sum())
+
+# Distribution of the target variable (species)
+print("\nDistribution of the target variable (species):")
+print(df['species'].value_counts())
+
+# Univariate Analysis - Histograms for each numerical feature
+df.hist(bins=20, figsize=(10, 10), grid=False)
+plt.suptitle('Histograms of numerical features')
+plt.show()
+
+# Univariate Analysis - KDE plots for each numerical feature
+for column in df.select_dtypes(include=[np.number]).columns:
+    plt.figure(figsize=(10, 6))
+    sns.kdeplot(df[column], shade=True)
+    plt.title(f'KDE plot of {column}')
+    plt.show()
+
+# Boxplots to detect outliers
+plt.figure(figsize=(10, 6))
+sns.boxplot(data=df)
+plt.title('Boxplots of numerical features')
+plt.show()
+
+# Pair plot to explore relationships between numerical features
+sns.pairplot(df, hue='species')
+plt.suptitle('Pair plot of numerical features by species')
+plt.show()
+
+# Correlation matrix (only for numerical columns)
+correlation_matrix = df.select_dtypes(include=[np.number]).corr() # Select only numerical columns for correlation
+print("\nCorrelation matrix:")
+print(correlation_matrix)
+
+# Heatmap of the correlation matrix
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title('Heatmap of the correlation matrix')
+plt.show()
+
+# Scatter plots for numerical features
+for col1 in df.select_dtypes(include=[np.number]).columns:
+    for col2 in df.select_dtypes(include=[np.number]).columns:
+        if col1 != col2:
+            plt.figure(figsize=(10, 6))
+            sns.scatterplot(x=col1, y=col2, hue='species', data=df)
+            plt.title(f'Scatter plot of {col1} vs {col2}')
+            plt.show()
+
