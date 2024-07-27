@@ -1,10 +1,16 @@
 
 **NAME**:LAVURI SIMHADRI
+
 **Company**:CODTECH IT SOLUTIONS
+
 **ID**: CT4DS3642
+
 **Domain**:Data Scientist
+
 **Duration**:July 1st to August 1st 2024
+
 **Mentor**:N.Santhosh Kumar
+
 # CODTECH-Task1
 **Exploratory Data Analysis (EDA)**
 
