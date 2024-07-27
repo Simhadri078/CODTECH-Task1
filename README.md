@@ -8,7 +8,7 @@
 # CODTECH-Task1
 **Exploratory Data Analysis (EDA)**
 
-### EDA Project Overview
+### Exploratory Data Analysis Project Overview
 
 #### **Overview:**
 The Exploratory Data Analysis (EDA) project aims to perform a thorough examination of a given dataset to understand its main characteristics, identify patterns, detect anomalies, and visualize the relationships between variables. EDA is a crucial step in the data analysis process, serving as a foundation for further statistical analysis or machine learning modeling.
